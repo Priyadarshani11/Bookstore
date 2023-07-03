@@ -1,0 +1,25 @@
+<!-- book_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Detail</title>
+</head>
+<body>
+  <h1>Book Detail</h1>
+
+  <h2>{{ book.title }}</h2>
+  <p><strong>Author:</strong> {{ book.author }}</p>
+  <p><strong>Categories:</strong>
+    {% for category in book.categories.all %}
+      {{ category.name }}
+      {% if not forloop.last %}, {% endif %}
+    {% endfor %}
+  </p>
+  <p><strong>Description:</strong> {{ book.description }}</p>
+  <p><strong>Price:</strong> {{ book.price }}</p>
+  <p><strong>Customer Ratings:</strong> {{ book.customer_ratings }}</p>
+  <p><strong>Cover Image:</strong></p>
+  <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" width="300">
+
+</body>
+</html>
